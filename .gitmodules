@@ -1,3 +1,12 @@
 [submodule "themes/mnml"]
 	path = themes/mnml
 	url = https://github.com/ioveracker/mnml.git
+[submodule ".themes/readify"]
+	path = .themes/readify
+	url = https://github.com/vladigleba/readify.git
+[submodule ".themes/foxslide"]
+	path = .themes/foxslide
+	url = https://github.com/sevenadrian/foxslide
+[submodule ".themes/MediumFox"]
+	path = .themes/MediumFox
+	url = https://github.com/sevenadrian/MediumFox
