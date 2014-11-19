@@ -4,10 +4,10 @@
 
 url: http://paweldudek.github.io
 title: Paweł Dudek
-subtitle: A blogging framework for hackers.
+# subtitle: A blogging framework for hackers.
 author: Paweł Dudek
 # simple_search: https://www.google.com/search
-description:
+description: "As my day job I build iOS apps at <a href=\'http://www.taptera.com\''>Taptera</a>. During free time I run <a href=\'www.mobile-warsaw.pl\'>Mobile Warsaw</a>, mobile developers (iOS, Android and other mobile platforms) community in Warsaw.</br></br>And when I really have free time I usually spend it playing bass guitar. Or enjoying a good cup of coffee."
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -72,4 +72,4 @@ disqus_short_name:
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-56652602-1
