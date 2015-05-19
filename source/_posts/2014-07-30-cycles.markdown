@@ -1,8 +1,8 @@
 ---
 layout: post
 date: 2014-07-30 20:18:22
-title: Tightening your cycles
-categories: tdd
+title: "Tightening your cycles"
+categories: tdd test script
 ---
 
 BDD is about constant feedback.
@@ -55,6 +55,6 @@ end
 def red(text); colorize(text, "\e[31m"); end
 ```
 
-I should give my thanks to [Robert Wijas](https://github.com/robertwijas) who came up with the idea of killing all previous `xcodebuild` calls, otherwise switching branches would be quite a challange for your computer.
+# TODO: Explanation why kill xcodebuild
 
 Enjoy and as always, if you have any comments, hit me on [Twitter](http://twitter.com/eldudi).
