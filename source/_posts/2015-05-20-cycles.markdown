@@ -1,0 +1,83 @@
+---
+layout: post
+date: 2015-05-20 12:00:00
+title: "Tightening your cycles"
+categories: tdd test script
+---
+
+BDD is about constant feedback.
+
+Constant feedback about the code you write. Constant feedback whether your last refactor broke something, or whether everything works as expected. Your tests are here to tell you whether everything is OK.
+
+The sooner you get that feedback the better. By receiving information about state of your system as soon as possible you keep your flow uninterrupted. You stay focused on the task that you're currently trying to complete. And you're able to determine whether changes you're introducing are the right direction.
+
+Moreover you don't have to constantly *launch* the app to check whether the change you've just made works. By receiving feedback as soon as possible you *shorten* your evaluation cycles. You shorten the time between writing your code and being sure that it works as you'd expect.
+
+In short, you're just working faster.
+
+Unfortunately with Xcode (or Appcode) doesn't really provide this constant feedback - you have to remember to run Test action each time you need to see results. This solution is not perfect - your tests should be executed each time you make a change to your system.
+
+Fortunately we programmers like to build tools. Specifically in this case we can leverage `FileWatcher`, a Ruby gem that fires a notification each time a file changes in specified directory. We can use that gem to execute `xcodebuild test` automatically each time test or implementation files change.
+
+The only problem with trick above is that output from `xcodebuild test` is quite a mess, especially when your test suite grows large. Imagine what happens when your app reaches two thousand, or more, tests - finding which one failed would become quite a challenge.
+
+```
+(…)
+
+-[SpecSuiteName passing_spec_name]
+  Test Case '-[SpecSuiteName passing_spec_name]' started.
+  Test Case '-[SpecSuiteName passing_spec_name]' passed (0.271 seconds).
+
+-[SpecSuiteName failling_spec_name]
+  Test Case '-[SpecSuiteName failling_spec_name]' started.
+  Test Case '-[SpecSuiteName failling_spec_name]' failed (0.002 seconds).
+
+(…)
+
+Executed 2 tests, with 1 failure (1 unexpected) in 0.273 (0.278) seconds
+
+2 tests; 0 skipped; 1 failure; 1 exception; 0 pending
+```
+
+This is where [xcpretty](https://github.com/supermarin/xcpretty) comes in. It's a really simple tool - the only thing it actually does is that it parses output Xcode throws out when performing `xcodebuild test`. You get a green `.` for a passed test and a red `F` for a failed one. Plus all the info you can get for a failed test. But it gets even better - since `xcpretty` doesn't print all information `xcodebuild` gives it is actually *faster* than running tests normally.
+
+So here it is, the aforementioned script. Is uses Ruby and `filewatcher` gem, thus you should call `gem install filewatcher` prior to running it:
+
+```ruby
+require 'filewatcher'
+require 'system-bang'
+
+workspace_name = Dir["*.xcworkspace"].last
+# We assume that the name of the file is also the name of main scheme we'll be testing
+scheme_name = workspace_name.partition(".").first
+
+exit_with_message("Expected to find a workspace in current working directory, but none found.") unless workspace_name
+
+FileWatcher.new(["#{scheme_name}/"]).watch do |filename|
+  system_command = "xcodebuild test -workspace '#{workspace_name}' -scheme '#{scheme_name}' -sdk iphonesimulator -destination \"platform=iOS Simulator,name=iPad Retina,OS=7.1\" | xcpretty -c --no-utf --test"
+
+  puts "Executing: #{system_command}"
+  # Kill xcodebuild to make sure we kill previous results
+  system!('killall xcodebuild -t `tty` 2>/dev/null || true')
+  system! system_command
+end
+
+# Helpers
+
+def exit_with_message(msg)
+  puts red(msg)
+  exit 1
+end
+
+def colorize(text, color_code)
+  "#{color_code}#{text}\e[0m"
+end
+
+def red(text);
+  colorize(text, "\e[31m");
+end
+```
+
+You can use this script not only for running your tests, but for checking whether your app compiles. This can be a great tool for checking whether your Swift code is valid without relying on Xcode. 
+
+If you have any comments, hit me on [Twitter](http://twitter.com/eldudi).
