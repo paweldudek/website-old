@@ -1,0 +1,61 @@
+past_talks:
+- name: Behavior Driven Development - The whys and hows
+  conference: Mobile Warsaw
+  url: http://www.meetup.com/Mobile-Warsaw/events/221290599/
+  slides: https://speakerdeck.com/paweldudek/behaviour-driven-development-the-whys-and-hows
+  location: Warsaw, Poland
+  dates: 20th April, 2015
+  recording: -QqEFOklw0o
+- name: Behavior Driven Development
+  conference: Cocoaheads Berlin
+  url: http://www.meetup.com/Cocoaheads-Berlin/events/200901792/
+  slides: https://speakerdeck.com/paweldudek/behaviour-driven-development-the-whys-and-hows
+  location: Berlin, Germany
+  dates: 17th September, 2014
+- name: Introduction to Cocoapods
+  conference: Lodz wiOSluje
+  url: http://www.meetup.com/Lodz-w-iOS-luje/events/173529372/
+  slides: https://speakerdeck.com/paweldudek/introduction-to-cocoapods
+  location: Lodz, Poland
+  dates: 23rd May, 2014
+- name: Unit Testing iOS Apps
+  conference: Lodz wiOSluje
+  url: http://www.meetup.com/Lodz-w-iOS-luje/events/153965642/
+  slides: https://speakerdeck.com/paweldudek/unit-testing-ios-apps
+  location: Lodz, Poland
+  dates: 24th January, 2014
+- name: (Unit) Testing iOS Apps
+  conference: Cocoaheads Wroclaw
+  url: https://www.facebook.com/events/185712844968467/
+  slides: https://speakerdeck.com/paweldudek/unit-testing-ios-apps
+  location: Wroclaw, Poland
+  dates: 16th December, 2013
+- name: TDDing iOS Apps
+  conference: Cocoaheads Krakow
+  url: http://www.meetup.com/CocoaHeads-Krakow/events/148212422/
+  slides: http://dudek.mobi/slides/%28Unit%29%20Testing%20iOS%20Apps.pdf
+  location: Lodz, Poland
+  dates: 14th November, 2013
+- name: Introduction to Cocoapods
+  conference: Mobile Warsaw
+  url: http://www.meetup.com/Mobile-Warsaw/events/118864032/
+  slides: https://speakerdeck.com/paweldudek/introduction-to-cocoapods
+  location: Warsaw, Poland
+  dates: 19th August, 2013
+  recording: EblLyiRX230
+- name: TDDing iOS Apps
+  conference: Mobile Warsaw
+  url: http://mobile-warsaw.pl/meetup_003.html
+  slides: http://dudek.mobi/slides/%28Unit%29%20Testing%20iOS%20Apps.pdf
+  location: Warsaw, Poland
+  dates: 25th June, 2013
+
+workshops:
+- name: Lessons from Swift in Production
+  conference: CocoaHeads Hamburg
+  url: http://www.meetup.com/CocoaHeads-Hamburg/events/221990648/
+  slides: https://speakerdeck.com/ashfurrow/lessons-from-production-swift
+  location: Hamburg, Germany
+  dates: May 7, 2015
+  image: /img/speaking/productionswift.png
+  hidden: true

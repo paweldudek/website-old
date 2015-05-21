@@ -4,3 +4,51 @@
 ul {
   list-style: circle inside;
 }
+
+.speaking {
+  margin-top: 0px;
+}
+
+.speaking ul {
+    padding: 0px
+}
+
+.speaking ul li {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left
+}
+
+.speaking ul li i {
+    width: 30px;
+    text-align: center;
+    position: relative;
+    left: 10px
+}
+
+.speaking ul li h3 {
+    margin-top: 0px;
+    padding-bottom: 5px
+}
+
+.speaking ul li p, .speaking ul li div {
+    margin: 0px
+}
+
+.speaking li {
+  margin-bottom: 20px;
+}
+
+.speaking ul li p {
+    padding-left: 30px;
+    text-indent: -30px
+}
+
+.speaking ul li a {
+    text-decoration: none
+}
+
+.speaking ul li img {
+    width: 100%
+}
